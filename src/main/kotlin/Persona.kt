@@ -1,22 +1,26 @@
 package M03_UF4_A4_persones
 
 /* Definició de la classe Persona */
-class Persona {
+class Persona ( var nom: String, var cognoms: String) {
     //Estructura, coneguda com a propietats o atributs
-    var nom: String
-    var cognoms: String
+
     var edat: Int = 0
     var alcada: Int = 0
     var pes: Float = 0f
 
-    init {
-        nom = "Anònim"
-        cognoms = "Anònimez"
-        edat = 18
-        alcada = 170
-        pes = 70.5f
-    }
 
+    constructor(): this("Anònim" ,"Anònimez") {
+        this.nom = "Anònim"
+        this.cognoms = "Anònimez"
+    }
+    constructor(nom:String , cognom:String, edad:Int): this(nom, cognom) {
+        this.edat = edad
+    }
+    constructor(nom:String , cognom:String, edad:Int, altura:Double, peso:Int): this(nom, cognom) {
+        this.edat = edad
+        this.alcada = (altura*100).toInt()
+        this.pes = peso.toFloat()
+    }
     //Comportament, també conegut com mètodes
     fun caminar() {
         println(quiSocJo() + "Estic caminant")
@@ -35,6 +39,21 @@ class Persona {
     }
 
     private fun quiSocJo() : String {
-        return nom + cognoms + ":: "
+        return nom + " " + cognoms + ":: "
+    }
+
+    fun presentacio() {
+        val message = StringBuilder()
+        message.append("Hola, sóc ${quiSocJo()}. ")
+        if (edat > 0) {
+            message.append("Tinc $edat anys. ")
+        }
+        if (alcada > 0) {
+            message.append("La meva alçada és de $alcada cm. ")
+        }
+        if (pes > 0) {
+            message.append("El meu pes és de $pes kg.")
+        }
+        println(message.toString())
     }
 }

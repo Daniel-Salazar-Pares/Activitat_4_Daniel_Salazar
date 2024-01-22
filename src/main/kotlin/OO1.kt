@@ -1,5 +1,5 @@
 package M03_UF4_A4_persones
-/*
+
 fun main(args: Array<String>) {
     val johndoe: Persona = Persona()
     johndoe.presentacio()
@@ -10,4 +10,3 @@ fun main(args: Array<String>) {
     val ana: Persona = Persona("Ana", "Díaz Marco", 25, 1.65, 53)
     ana.presentacio()
 }
-*/
